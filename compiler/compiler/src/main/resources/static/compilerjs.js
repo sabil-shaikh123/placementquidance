@@ -38,7 +38,6 @@ async function runCode() {
             const currentInputArray = inputcases[i];
             const expectedOutput = outputcases[i];
 
-            alert("the current array is "+currentInputArray +"type of this is "+typeof currentInputArray);
             // Build the standard input string for Piston
             const input = currentInputArray.join('\n').trim();
             const body = {
@@ -149,4 +148,5 @@ document.getElementById("language").addEventListener('change', async function() 
         document.getElementById("code").value = "// Error fetching code snippet";
     }
 });
+
 
