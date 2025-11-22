@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
         nameElement.style.textDecoration = "underline";
 
         nameElement.onclick = () => {
-          window.location.href = `company.html?id=${company.company_id}`;
+          window.location.href = `/company?id=${company.company_id}`;
         };
 
         div.appendChild(nameElement);
@@ -30,8 +30,9 @@ function taketest(){
     .then(res => res.json())
     .then(data => {
         const randomquestion = data[Math.floor(Math.random() * data.length)];
-        window.location.href = `compiler.html?id=${randomquestion.codeId}`;
+         window.location.href = `/compiler?id=${randomquestion.codeId}`;
     })
 }
+
 
 
