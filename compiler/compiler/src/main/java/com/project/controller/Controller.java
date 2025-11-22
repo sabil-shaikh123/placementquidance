@@ -26,11 +26,7 @@ public class Controller {
     @Autowired
     private CompanyCodeService companyCodeService;
 
-@GetMapping("/")
-    public String home() {
-        // Thymeleaf will look for src/main/resources/templates/index.html
-        return "home";
-    }
+
         
     //to get the details of the specific company
     @GetMapping("/getCompanyById/{id}")
