@@ -11,8 +11,14 @@ public class PageController {
         return "home";
     }
 
-    @GetMapping("/about")
-    public String about() {
-        return "about";  // templates/about.html
+     @GetMapping("/compiler")
+    public String compiler(@RequestParam int id, Model model) {
+        model.addAttribute("id", id); // pass id to template
+        return "compiler"; // renders templates/compiler.html
+    }
+    @GetMapping("/company")
+    public String company(@RequestParam int id, Model model) {
+        model.addAttribute("id", id); // pass the id to the template
+        return "company"; // renders templates/company.html
     }
 }
