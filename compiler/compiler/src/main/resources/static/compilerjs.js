@@ -25,7 +25,7 @@ async function runCode() {
     }
 
     try {
-        const baseUrl = "http://localhost:8080";
+        const baseUrl = "https://placementquidance-2.onrender.com";
         // ✅ Using await correctly
         const res = await fetch(`${baseUrl}/getCodeById/${codeId}`);
         if (!res.ok) throw new Error("Failed to load test cases");
@@ -103,7 +103,7 @@ async function runCode() {
 //code to add the things when the page is loaded
 document.addEventListener('DOMContentLoaded', async () => {
     try{
-        const baseUrl = "http://localhost:8080";
+        const baseUrl = "https://placementquidance-2.onrender.com";
         // ✅ Using await correctly
         const question = await fetch(`${baseUrl}/getCodeById/${codeId}`);
         if(!question.ok){
@@ -122,7 +122,7 @@ document.getElementById("language").addEventListener('change', async function() 
     const language = document.getElementById("language").value;
 
     try {
-        const baseUrl = "http://localhost:8080";
+        const baseUrl = "https://placementquidance-2.onrender.com";
         const res = await fetch(`${baseUrl}/getCodeById/${codeId}`);
 
         if (!res.ok)
@@ -149,3 +149,4 @@ document.getElementById("language").addEventListener('change', async function() 
         document.getElementById("code").value = "// Error fetching code snippet";
     }
 });
+
