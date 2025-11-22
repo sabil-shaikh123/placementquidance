@@ -35,10 +35,8 @@ fetch(`${baseUrl}/getCompanyQuestion/${companyId}`)
       qElement.style.cursor = "pointer";
       qElement.style.color = "blue";
       qElement.style.textDecoration = "underline";
-      alert("code id is "+q.codeId)
       qElement.onclick = () => {
-        alert("code id is "+q.codeId)
-        window.location.href = `compiler.html?id=${q.codeId}`;
+        window.location.href = `/compiler?id=${q.codeId}`; // ✅ correct
       };
 
       div.appendChild(qElement);
@@ -47,6 +45,7 @@ fetch(`${baseUrl}/getCompanyQuestion/${companyId}`)
   .catch(err => {
     console.error("Error fetching questions:", err);
   });
+
 
 
 
