@@ -4,7 +4,7 @@ const companyId = urlParams.get('id');
 
 if (companyId) {
   // Fetch company details by ID
-  fetch(`http://localhost:8080/getCompanyById/${companyId}`)
+  fetch(`https://placementquidance-2.onrender.com/getCompanyById/${companyId}`)
     .then(res => {
       if (!res.ok) {
         throw new Error(`HTTP error! Status: ${res.status}`);
@@ -25,7 +25,7 @@ if (companyId) {
 
 const div = document.getElementById("companyquestions")
 
-const baseUrl = "http://localhost:8080";
+const baseUrl = "https://placementquidance-2.onrender.com";
 fetch(`${baseUrl}/getCompanyQuestion/${companyId}`)
   .then(res => res.json())
   .then(questions => {
@@ -47,5 +47,6 @@ fetch(`${baseUrl}/getCompanyQuestion/${companyId}`)
   .catch(err => {
     console.error("Error fetching questions:", err);
   });
+
 
 
