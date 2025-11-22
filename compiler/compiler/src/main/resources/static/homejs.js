@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  fetch("http://localhost:8080/getAllCompany")
+  fetch("https://placementquidance-2.onrender.com/getAllCompany")
     .then(res => res.json())
     .then(data => {
       const div = document.getElementById("companyList");
@@ -26,11 +26,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 function taketest(){
-    fetch("http://localhost:8080/getAllCode")
+    fetch("https://placementquidance-2.onrender.com/getAllCode")
     .then(res => res.json())
     .then(data => {
         const randomquestion = data[Math.floor(Math.random() * data.length)];
         window.location.href = `compiler.html?id=${randomquestion.codeId}`;
     })
 }
+
 
