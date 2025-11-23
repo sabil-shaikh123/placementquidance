@@ -82,13 +82,13 @@ async function runCode() {
             }
 
             // Compare actual output with expected output (trimming both for safety)
-            if (actualOutput !== (expectedOutput || "")) {
+            if (actualOutput != (expectedOutput || "")) {
                 document.getElementById("result").innerText = `Test Case ${i + 1} Failed.\nExpected: ${expectedOutput}\nActual: ${actualOutput}`;
                 return; // Stop execution on the first failed test
             }
 
             // If the loop completes, all tests passed
-            if (i === inputcases.length - 1) {
+            if (i == inputcases.length - 1) {
                 document.getElementById("result").innerText = "SUCCESS! All test cases passed.";
             }
         }
@@ -160,6 +160,7 @@ document.getElementById("language").addEventListener('change', async function() 
         document.getElementById("code").value = "// Error fetching code snippet";
     }
 });
+
 
 
 
