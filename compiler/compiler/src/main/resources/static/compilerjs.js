@@ -109,7 +109,19 @@ document.addEventListener('DOMContentLoaded', async () => {
             throw new "error fetching the question please refresh the page";
         }
         const data = await question.json()
-        document.getElementById("question").textContent = data.question;
+        let questionText = data.question;
+
+        // Convert literal \n into real newlines
+        questionText = questionText.replace(/\\n/g, "\n");
+
+        const questionDiv = document.getElementById("question");
+        questionDiv.innerHTML = ""; // clear previous
+
+        questionText.split("\n").forEach(line => {
+            const div = document.createElement("div");
+            div.textContent = line;
+            questionDiv.appendChild(div);
+        });
 
     }catch(e){
         document.getElementById("question").textContent = "error loading the question"
@@ -141,12 +153,13 @@ document.getElementById("language").addEventListener('change', async function() 
         else
             codesynp = "";
 
+        codesynp = codesynp.replace(/\\n/g, "\n");
         document.getElementById("code").value = codesynp;
-
     } catch (err) {
         console.error(err);
         document.getElementById("code").value = "// Error fetching code snippet";
     }
 });
+
 
 
