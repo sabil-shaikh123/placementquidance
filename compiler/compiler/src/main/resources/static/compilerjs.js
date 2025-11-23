@@ -162,6 +162,23 @@ document.getElementById("language").addEventListener('change', async function() 
 });
 
 
+const textarea = document.getElementById("code");
+
+textarea.addEventListener("keydown", function (e) {
+    if (e.key === "Tab") {
+        e.preventDefault(); // stop focus jump
+        let start = this.selectionStart;
+        let end = this.selectionEnd;
+
+        // insert tab
+        this.value = this.value.substring(0, start) + "\t" + this.value.substring(end);
+
+        // move cursor after tab
+        this.selectionStart = this.selectionEnd = start + 1;
+    }
+});
+
+
 
 
 
