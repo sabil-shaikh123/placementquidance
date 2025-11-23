@@ -153,13 +153,14 @@ document.getElementById("language").addEventListener('change', async function() 
         else
             codesynp = "";
 
-        codesynp = codesynp.replace(/\\n/g, "\n");
+        codesynp = codesynp.replace(/\\n/g, "\n").replace(/\\t/g, "\t");;
         document.getElementById("code").value = codesynp;
     } catch (err) {
         console.error(err);
         document.getElementById("code").value = "// Error fetching code snippet";
     }
 });
+
 
 
 
