@@ -155,6 +155,7 @@ document.getElementById("language").addEventListener('change', async function() 
 
         codesynp = codesynp.replace(/\\n/g, "\n").replace(/\\t/g, "\t");
         document.getElementById("code").value = codesynp;
+        autoResize()
     } catch (err) {
         console.error(err);
         document.getElementById("code").value = "// Error fetching code snippet";
@@ -177,6 +178,18 @@ textarea.addEventListener("keydown", function (e) {
         this.selectionStart = this.selectionEnd = start + 1;
     }
 });
+
+const codeArea = document.getElementById("code");
+
+function autoResize() {
+    codeArea.style.height = "auto";
+    const extraPadding = 40; // space for 2 extra lines
+    codeArea.style.height = (codeArea.scrollHeight + extraPadding) + "px";
+}
+
+codeArea.addEventListener("input", autoResize);
+
+
 
 
 
