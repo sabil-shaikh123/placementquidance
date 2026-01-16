@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded',() => {
         if(email == null){
             document.getElementById("authMsg").innerText ="You are not an authenticated user";
              setTimeout(() => {
-                window.location.href = "login.html";
+                window.location.href = "/login";
              }, 2000);
 
         }
@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded',() => {
           alert("code id is "+q.codeId)
           qElement.onclick = () => {
             alert("code id is "+q.codeId)
-            window.location.href = `compiler.html?id=${q.codeId}`;
+            window.location.href = `/compiler?id=${q.codeId}`;
           };
 
           div.appendChild(qElement);
@@ -178,6 +178,7 @@ function checkTogle(companyId){
     .catch(err => console.error("Error fetching profile data:", err));
     return
 }
+
 
 
 
