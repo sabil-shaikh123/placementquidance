@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     if(email == null){
         document.getElementById("authMsg").innerText ="You are not an authenticated user";
          setTimeout(() => {
-            window.location.href = "login.html";
+            window.location.href = "/login";
          }, 2000);
 
     }else{
@@ -229,6 +229,7 @@ function autoResize() {
 }
 
 codeArea.addEventListener("input", autoResize);
+
 
 
 
