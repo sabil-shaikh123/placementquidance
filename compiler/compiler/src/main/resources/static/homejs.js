@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 nameElement.style.textDecoration = "underline";
 
                 nameElement.onclick = () => {
-                  window.location.href = `company.html?id=${company.company_id}`;
+                  window.location.href = `/company?id=${company.company_id}`;
                 };
 
                 div.appendChild(nameElement);
@@ -81,14 +81,15 @@ function taketest(){
     .then(res => res.json())
     .then(data => {
         const randomquestion = data[Math.floor(Math.random() * data.length)];
-        window.location.href = `compiler.html?id=${randomquestion.codeId}`;
+        window.location.href = `/compiler?id=${randomquestion.codeId}`;
     })
 }
 
 //when the profile button is clicked to jump to profile page
 function goToProfile() {
-    window.location.href = "profile.html";
+    window.location.href = "/profile";
 }
+
 
 
 
