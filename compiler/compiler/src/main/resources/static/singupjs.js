@@ -73,7 +73,7 @@ function getOtp() {
     }
 
 
-    const baseUrl = "http://localhost:8080";
+    const baseUrl = "https://placementquidance-2.onrender.com";
     fetch(`${baseUrl}/send-otp`,{
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -97,7 +97,7 @@ function submitForm() {
         return;
     }
 
-    fetch("http://localhost:8080/verify-otp", {
+    fetch("https://placementquidance-2.onrender.com/verify-otp", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -116,7 +116,7 @@ function submitForm() {
             let email = document.getElementById("email").value;
             let password = document.getElementById("password").value;
             let name = document.getElementById("name").value.trim();
-            fetch("http://localhost:8080/addStudent", {
+            fetch("https://placementquidance-2.onrender.com/addStudent", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
@@ -143,4 +143,5 @@ function submitForm() {
         console.error("Error:", error);
         otperror.textContent = "Server error";
     });
+
 }
