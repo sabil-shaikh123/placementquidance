@@ -133,7 +133,7 @@ function submitForm() {
 
             // Redirect to login page after 2 seconds
             setTimeout(() => {
-                window.location.href = "login.html";
+                window.location.href = "/login";
             }, 2000);
         } else {
             otperror.textContent = "Invalid OTP";
@@ -145,3 +145,4 @@ function submitForm() {
     });
 
 }
+
