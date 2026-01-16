@@ -28,7 +28,7 @@ import java.util.Random;
 )
 public class Controller {
 
-   @Autowired
+    @Autowired
     private CodeService codeService;
     @Autowired
     private CompanyService companyService;
@@ -135,4 +135,5 @@ public class Controller {
         }
         return "Invalid OTP";
     }
+
 }
