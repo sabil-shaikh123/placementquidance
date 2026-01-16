@@ -3,7 +3,7 @@ function login1(){
     const email = document.getElementById("email").value.trim()
     const password = document.getElementById("password").value.trim()
     alert("calling the backend")
-    fetch("http://localhost:8080/authenticate", {
+    fetch("https://placementquidance-2.onrender.com/authenticate", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -28,6 +28,7 @@ function login1(){
 
 
 }
+
 
 
 
