@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if(email == null){
         document.getElementById("authMsg").innerText ="You are not an authenticated user";
          setTimeout(() => {
-            window.location.href = "login.html";
+            window.location.href = "/login";
          }, 2000);
 
     }else{
@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
                        companyEl.style.cursor = "pointer";
                        companyEl.addEventListener("click", () => {
                            // Navigate to the company page with company ID
-                           window.location.href = `company.html?id=${company.company_id}`;
+                           window.location.href = `/company?id=${company.company_id}`;
                        });
 
                        // Append to the container
@@ -66,3 +66,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 })
+
