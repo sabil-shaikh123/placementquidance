@@ -24,6 +24,11 @@ public class PageController {
         // Spring Boot + Thymeleaf will render templates/home.html
         return "singin";
     }
+    @GetMapping("/profile")
+    public String profile() {
+        // Spring Boot + Thymeleaf will render templates/home.html
+        return "profile";
+    }
 
      @GetMapping("/compiler")
     public String compiler(@RequestParam int id, Model model) {
