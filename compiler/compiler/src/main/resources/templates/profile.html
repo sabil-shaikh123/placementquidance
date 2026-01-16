@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+
+    <style>
+        /* ---------- GLOBAL ---------- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #e0e0e0;
+            background: linear-gradient(135deg, #050510, #0a0f2d, #001a33, #002244);
+            background-size: 400% 400%;
+            animation: futuristicFlow 12s ease infinite;
+            min-height: 100vh;
+        }
+
+        @keyframes futuristicFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* ---------- CONTAINER ---------- */
+        .profile-container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 255, 255, 0.2);
+        }
+
+        /* ---------- USER INFO ---------- */
+        .user-info {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .user-info h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, #00eaff, #0099ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
+        }
+
+        .user-info p {
+            color: #bae6fd;
+            font-size: 1rem;
+        }
+
+        /* ---------- SECTION TITLE ---------- */
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #7dd3fc;
+            text-align: center;
+        }
+
+        /* ---------- COMPANY LIST ---------- */
+        .company-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 22px;
+        }
+
+        .company-card {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0, 255, 255, 0.15);
+            transition: 0.4s ease;
+        }
+
+        .company-card h3 {
+            color: #a5f3fc;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+
+        .company-card span {
+            color: #bae6fd;
+            font-size: 0.9rem;
+        }
+
+        /* ---------- RESPONSIVE ---------- */
+        @media (max-width: 600px) {
+            .user-info h1 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="profile-container">
+    <p id="authMsg"></p>
+    <!-- USER DETAILS -->
+    <div class="user-info">
+        <h1 id="userName"></h1>
+        <p id="userEmail"></p>
+    </div>
+
+    <!-- ENROLLED COMPANIES -->
+    <h2 class="section-title">Enrolled Companies</h2>
+
+    <div class="company-list" id="enrolledCompanies">
+        <!-- Company cards will be injected here via JS -->
+    </div>
+
+</div>
+
+<!-- JS FILE (you will write DB logic here) -->
+<script src="../static/profilejs.js"></script>
+
+</body>
+</html>

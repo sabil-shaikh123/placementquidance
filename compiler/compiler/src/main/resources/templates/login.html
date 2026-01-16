@@ -1,0 +1,174 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8" />-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0" />-->
+<!--    <title>Login</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<div class="login-container">-->
+<!--    <h2>Login</h2>-->
+
+<!--    <input type="email" id="email" placeholder="Enter Email" required><br>-->
+<!--    <input type="password" id="password" placeholder="Enter Password" required><br>-->
+<!--    <button onclick="login1()">Login</button>-->
+
+<!--    <p id = "errorpara"></p>-->
+
+
+<!--    <p>Don't have an account? <a href="singup.html">Sign up</a></p>-->
+<!--</div>-->
+<!--</body>-->
+<!--<script src="../static/loginjs.js"></script>-->
+<!--</html>-->
+
+
+
+<!--the below code is from chatgpt to design the login page-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+
+    <style>
+        /* ---------- GLOBAL ---------- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #050510, #0a0f2d, #001a33, #002244);
+            background-size: 400% 400%;
+            animation: gradientFlow 12s ease infinite;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #e0e0e0;
+        }
+
+        @keyframes gradientFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* ---------- LOGIN CONTAINER ---------- */
+        .login-container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            border-radius: 20px;
+            padding: 40px 30px;
+            max-width: 400px;
+            width: 100%;
+            box-shadow: 0 15px 35px rgba(0, 255, 255, 0.2);
+            text-align: center;
+        }
+
+        .login-container h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            background: linear-gradient(90deg, #00eaff, #0099ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* ---------- INPUT FIELDS ---------- */
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 12px 15px;
+            margin: 10px 0;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            background: rgba(255, 255, 255, 0.05);
+            color: #e0e0e0;
+            outline: none;
+            font-size: 1rem;
+            transition: 0.3s;
+        }
+
+        input[type="email"]:focus,
+        input[type="password"]:focus {
+            border-color: #00eaff;
+            box-shadow: 0 0 10px rgba(0, 234, 255, 0.5);
+        }
+
+        /* ---------- ERROR PARAGRAPH ---------- */
+        #errorpara {
+            color: #ff6b6b;
+            font-size: 0.9rem;
+            min-height: 18px;
+            margin-top: 5px;
+        }
+
+        /* ---------- BUTTON ---------- */
+        button {
+            width: 100%;
+            padding: 12px 0;
+            margin: 15px 0;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            background: linear-gradient(90deg, #00ffd5, #00a6ff);
+            color: #00121f;
+            box-shadow: 0 5px 15px rgba(0, 255, 255, 0.4);
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 10px 25px rgba(0, 255, 255, 0.5);
+        }
+
+        /* ---------- LINKS ---------- */
+        p a {
+            color: #00eaff;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        p a:hover {
+            text-decoration: underline;
+        }
+
+        /* ---------- RESPONSIVE ---------- */
+        @media (max-width: 480px) {
+            .login-container {
+                padding: 30px 20px;
+            }
+
+            h2 {
+                font-size: 1.6rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="login-container">
+    <h2>Login</h2>
+
+    <input type="email" id="email" placeholder="Enter Email" required><br>
+    <input type="password" id="password" placeholder="Enter Password" required><br>
+
+    <button onclick="login1()">Login</button>
+
+    <p id="errorpara"></p>
+
+    <p>Don't have an account? <a href="singup.html">Sign up</a></p>
+</div>
+
+<script src="../static/loginjs.js"></script>
+
+</body>
+</html>
