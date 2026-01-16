@@ -62,30 +62,40 @@ function validatePassword() {
 }
 
 
-function getOtp() {
+async function getOtp() {
     let email = document.getElementById("email").value;
     let password = document.getElementById("password").value;
     let confirmPassword = document.getElementById("confirmPassword").value;
-    const otperror = document.getElementById("otpError")
+    const otperror = document.getElementById("otpError");
 
-    if (!validateName() || !validateEmail() || !validatePassword() ) {
+    if (!validateName() || !validateEmail() || !validatePassword()) {
         return;
     }
 
-    alert("Sending the otp to the user")
+    alert("Sending the OTP to the user");
+
     const baseUrl = "https://placementquidance-2.onrender.com";
-    fetch(`${baseUrl}/send-otp`,{
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: email })
-    })
-    .then(res => res.text())
-    .then(msg => otperror.textContent=msg);
 
+    try {
+        const res = await fetch(`${baseUrl}/send-otp`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ email: email })
+        });
 
-    document.getElementById("otpSection").style.display = "block";
+        const msg = await res.text();
+        otperror.textContent = msg;
 
+        document.getElementById("otpSection").style.display = "block";
+
+    } catch (error) {
+        console.error("Error sending OTP:", error);
+        otperror.textContent = "Server error. Please try again.";
+    }
 }
+
 
 function submitForm() {
     let email = document.getElementById("email").value;
@@ -145,5 +155,6 @@ function submitForm() {
     });
 
 }
+
 
 
