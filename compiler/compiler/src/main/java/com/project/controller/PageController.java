@@ -20,7 +20,7 @@ public class PageController {
         return "login";
     }
     @GetMapping("/singin")
-    public String sing() {
+    public String singin() {
         // Spring Boot + Thymeleaf will render templates/home.html
         return "singup";
     }
