@@ -22,12 +22,13 @@ function login1(){
             }else{
                 //adding the email to the session storage so that in next page i can easily fetch it
                 sessionStorage.setItem("Email",email)
-                window.location.href = 'home.html'
+                window.location.href = '/home'
             }
         })
 
 
 }
+
 
 
 
