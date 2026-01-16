@@ -13,10 +13,16 @@ public class PageController {
     //     // Spring Boot + Thymeleaf will render templates/home.html
     //     return "home";
     // }
-    @GetMapping("/")
-    public String home() {
+
+    @GetMapping("/login")
+    public String login() {
         // Spring Boot + Thymeleaf will render templates/home.html
         return "login";
+    }
+    @GetMapping("/singin")
+    public String sing() {
+        // Spring Boot + Thymeleaf will render templates/home.html
+        return "singin";
     }
 
      @GetMapping("/compiler")
