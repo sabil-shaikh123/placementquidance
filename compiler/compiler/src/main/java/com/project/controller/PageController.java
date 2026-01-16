@@ -8,11 +8,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller  // For HTML pages only
 public class PageController {
 
-    // @GetMapping("/")
-    // public String home() {
-    //     // Spring Boot + Thymeleaf will render templates/home.html
-    //     return "home";
-    // }
+    @GetMapping("/home")
+    public String home() {
+        // Spring Boot + Thymeleaf will render templates/home.html
+        return "home";
+    }
 
     @GetMapping("/login")
     public String login() {
