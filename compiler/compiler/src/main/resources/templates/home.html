@@ -37,6 +37,23 @@
     <title>Placement Guidance Platform</title>
 
     <style>
+
+        .profile-btn {
+          width: 48px;
+          height: 48px;
+          border: none;
+          background: transparent;
+          cursor: pointer;
+          padding: 0;
+        }
+
+        .profile-btn img {
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;   /* makes it circular */
+          object-fit: cover;
+        }
+
         /* ---------- GLOBAL ---------- */
         * {
             box-sizing: border-box;
@@ -253,10 +270,13 @@
 <body>
 
 <header>
+    <p id="authMsg"></p>
+    <button  class="profile-btn"  onclick="goToProfile()">
+        <img src="profile.png" alt="Profile">
+    </button>
     <h2>Placement Guidance Platform</h2>
     <div>
         <button onclick="taketest()">Take Test</button>
-        <button>Button 2</button>
     </div>
 </header>
 
@@ -268,8 +288,7 @@
     </div>
 </main>
 
-<script src="/homejs.js"></script>
+<script src="../static/homejs.js"></script>
 
 </body>
 </html>
-
