@@ -99,32 +99,73 @@ async function runCode() {
 
 
 
+// //code to add the things when the page is loaded
+// document.addEventListener('DOMContentLoaded', async () => {
+//     try{
+//         const baseUrl = "https://placementquidance-2.onrender.com";
+//         // ✅ Using await correctly
+//         const question = await fetch(`${baseUrl}/getCodeById/${codeId}`);
+//         if(!question.ok){
+//             throw new "error fetching the question please refresh the page";
+//         }
+//         const data = await question.json()
+//         let questionText = data.question;
+
+//         // Convert literal \n into real newlines
+//         questionText = questionText.replace(/\\n/g, "\n");
+
+//         const questionDiv = document.getElementById("question");
+//         questionDiv.innerHTML = ""; // clear previous
+
+//         questionText.split("\n").forEach(line => {
+//             const div = document.createElement("div");
+//             div.textContent = line;
+//             questionDiv.appendChild(div);
+//         });
+
+//     }catch(e){
+//         document.getElementById("question").textContent = "error loading the question"
+//     }
+// });
+
 //code to add the things when the page is loaded
 document.addEventListener('DOMContentLoaded', async () => {
-    try{
-        const baseUrl = "https://placementquidance-2.onrender.com";
-        // ✅ Using await correctly
-        const question = await fetch(`${baseUrl}/getCodeById/${codeId}`);
-        if(!question.ok){
-            throw new "error fetching the question please refresh the page";
+    //to check wheather the user is authenticated or not
+    //if user is not authenticated then that will return to the login page
+    const email = sessionStorage.getItem("Email");
+    if(email == null){
+        document.getElementById("authMsg").innerText ="You are not an authenticated user";
+         setTimeout(() => {
+            window.location.href = "login.html";
+         }, 2000);
+
+    }else{
+        try{
+            const baseUrl = "https://placementquidance-2.onrender.com";
+            // ✅ Using await correctly
+            const question = await fetch(`${baseUrl}/getCodeById/${codeId}`);
+            if(!question.ok){
+                throw new "error fetching the question please refresh the page";
+            }
+            const data = await question.json()
+
+            let questionText = data.question;
+
+            // Convert literal \n into real newlines
+            questionText = questionText.replace(/\\n/g, "\n");
+
+            const questionDiv = document.getElementById("question");
+            questionDiv.innerHTML = ""; // clear previous
+
+            questionText.split("\n").forEach(line => {
+                const div = document.createElement("div");
+                div.textContent = line;
+                questionDiv.appendChild(div);
+            });
+
+        }catch(e){
+            document.getElementById("question").textContent = "error loading the question"
         }
-        const data = await question.json()
-        let questionText = data.question;
-
-        // Convert literal \n into real newlines
-        questionText = questionText.replace(/\\n/g, "\n");
-
-        const questionDiv = document.getElementById("question");
-        questionDiv.innerHTML = ""; // clear previous
-
-        questionText.split("\n").forEach(line => {
-            const div = document.createElement("div");
-            div.textContent = line;
-            questionDiv.appendChild(div);
-        });
-
-    }catch(e){
-        document.getElementById("question").textContent = "error loading the question"
     }
 });
 
@@ -188,6 +229,7 @@ function autoResize() {
 }
 
 codeArea.addEventListener("input", autoResize);
+
 
 
 
