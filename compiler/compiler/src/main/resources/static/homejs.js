@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if(email == null){
         document.getElementById("authMsg").innerText ="You are not an authenticated user";
          setTimeout(() => {
-            window.location.href = "login.html";
+            window.location.href = "/login";
          }, 2000);
 
     }else{
@@ -89,6 +89,7 @@ function taketest(){
 function goToProfile() {
     window.location.href = "/profile";
 }
+
 
 
 
