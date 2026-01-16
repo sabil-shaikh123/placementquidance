@@ -22,7 +22,7 @@ public class PageController {
     @GetMapping("/singin")
     public String sing() {
         // Spring Boot + Thymeleaf will render templates/home.html
-        return "singin";
+        return "singup";
     }
     @GetMapping("/profile")
     public String profile() {
