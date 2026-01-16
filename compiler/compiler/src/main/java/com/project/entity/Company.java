@@ -7,7 +7,9 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+
 
 @Entity
 @Data
@@ -21,7 +23,9 @@ public class Company {
     private String company_name;
     @Column(columnDefinition = "TEXT")
     private String company_description;
+    private Date visiting_date;
 //    @ManyToMany(cascade = CascadeType.ALL)
 //    private List<Code> codeList= new ArrayList<>();
 
 }
+
