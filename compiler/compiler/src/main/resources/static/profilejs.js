@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }else{
         //fetch all the details from the db
-          fetch("http://localhost:8080/getProfileData", {
+          fetch("https://placementquidance-2.onrender.com/getProfileData", {
                   method: "POST",
                   headers: {
                       "Content-Type": "application/json"
@@ -61,6 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
           })
     }
+
 
 
 
