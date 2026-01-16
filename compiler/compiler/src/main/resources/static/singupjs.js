@@ -72,7 +72,7 @@ function getOtp() {
         return;
     }
 
-
+    alert("Sending the otp to the user")
     const baseUrl = "https://placementquidance-2.onrender.com";
     fetch(`${baseUrl}/send-otp`,{
         method: "POST",
@@ -145,4 +145,5 @@ function submitForm() {
     });
 
 }
+
 
