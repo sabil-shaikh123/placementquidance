@@ -1,69 +1,73 @@
-document.addEventListener("DOMContentLoaded", () => {
-    //to check wheather the user is authenticated or not
-    //if user is not authenticated then that will return to the login page
+document.addEventListener("DOMContentLoaded", async () => {
+    // to check whether the user is authenticated or not
+    // if user is not authenticated then redirect to login page
     const email = sessionStorage.getItem("Email");
-    alert("the email is "+email)
-    if(email == null){
-        document.getElementById("authMsg").innerText ="You are not an authenticated user";
-         setTimeout(() => {
+    alert("the email is " + email);
+
+    if (email == null) {
+        document.getElementById("authMsg").innerText = "You are not an authenticated user";
+        setTimeout(() => {
             window.location.href = "/login";
-         }, 2000);
+        }, 2000);
+    } else {
+        try {
+            // fetch all the details from the db
+            const res = await fetch("https://placementquidance-2.onrender.com/getProfileData", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    email: email
+                })
+            });
 
-    }else{
-        //fetch all the details from the db
-          fetch("https://placementquidance-2.onrender.com/getProfileData", {
-                  method: "POST",
-                  headers: {
-                      "Content-Type": "application/json"
-                  },
-                  body: JSON.stringify({
-                      email: email
-                  })
-          }).then(res =>res.json())
-          .then(msg => {
-                alert(msg)
-               const name = document.getElementById("userName")
-               const email1 = document.getElementById("userEmail")
-               alert(msg.name)
-               name.textContent = msg.name
-               email1.textContent = msg.email
+            const msg = await res.json();
 
-               // Container for enrolled companies
-               const companiesDiv = document.getElementById("enrolledCompanies");
+            alert(msg);
 
-               // Clear existing content
-               companiesDiv.innerHTML = '';
+            const name = document.getElementById("userName");
+            const email1 = document.getElementById("userEmail");
 
-               // Check if student has any enrolled companies
-               if(msg.companyList && msg.companyList.length > 0) {
-                   msg.companyList.forEach(company => {
-                       // Create a div for each company
-                       const companyEl = document.createElement("div");
-                       companyEl.classList.add("company-item"); // optional class for styling
+            alert(msg.name);
 
-                       // Add company name
-                       companyEl.textContent = company.company_name + " - "
-                                               + new Date(company.visiting_date).toLocaleDateString();
+            name.textContent = msg.name;
+            email1.textContent = msg.email;
 
-                       // Make it clickable
-                       companyEl.style.cursor = "pointer";
-                       companyEl.addEventListener("click", () => {
-                           // Navigate to the company page with company ID
-                           window.location.href = `/company?id=${company.company_id}`;
-                       });
+            // Container for enrolled companies
+            const companiesDiv = document.getElementById("enrolledCompanies");
 
-                       // Append to the container
-                       companiesDiv.appendChild(companyEl);
-                   });
-               } else {
-                   companiesDiv.textContent = "No enrolled companies yet.";
-               }
+            // Clear existing content
+            companiesDiv.innerHTML = '';
 
-          })
+            // Check if student has any enrolled companies
+            if (msg.companyList && msg.companyList.length > 0) {
+                msg.companyList.forEach(company => {
+                    // Create a div for each company
+                    const companyEl = document.createElement("div");
+                    companyEl.classList.add("company-item"); // optional class for styling
+
+                    // Add company name
+                    companyEl.textContent =
+                        company.company_name + " - " +
+                        new Date(company.visiting_date).toLocaleDateString();
+
+                    // Make it clickable
+                    companyEl.style.cursor = "pointer";
+                    companyEl.addEventListener("click", () => {
+                        // Navigate to the company page with company ID
+                        window.location.href = `/company?id=${company.company_id}`;
+                    });
+
+                    // Append to the container
+                    companiesDiv.appendChild(companyEl);
+                });
+            } else {
+                companiesDiv.textContent = "No enrolled companies yet.";
+            }
+
+        } catch (error) {
+            console.error("Error:", error);
+        }
     }
-
-
-
-
-})
-
+});
