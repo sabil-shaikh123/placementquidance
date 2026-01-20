@@ -96,65 +96,68 @@ async function getOtp() {
     }
 }
 
-
-function submitForm() {
+async function submitForm() {
     let email = document.getElementById("email").value;
     let otp = document.getElementById("otp").value;
-    const otperror = document.getElementById("otpError")
+    const otperror = document.getElementById("otpError");
 
     if (otp === "") {
         otperror.textContent = "Please enter OTP";
         return;
     }
 
-    fetch("https://placementquidance-2.onrender.com/verify-otp", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            email: email,
-            otp: otp
-        })
-    })
-    .then(response => response.text())
-    .then(result => {
+    try {
+        const response = await fetch("https://placementquidance-2.onrender.com/verify-otp", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                email: email,
+                otp: otp
+            })
+        });
+
+        const result = await response.text();
+
         if (result === "OTP verified") {
             document.getElementById("message").innerText = "Signup successful!";
 
-            //adding the student details in the data base
+            // adding the student details in the database
             let email = document.getElementById("email").value;
             let password = document.getElementById("password").value;
             let name = document.getElementById("name").value.trim();
-            fetch("https://placementquidance-2.onrender.com/addStudent", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify({
-                        name:name,
-                        email: email,
-                        password:password
-                    })
-            }).then(res =>res.text)
-            .then(msg => alert(msg))
 
+            const res = await fetch("https://placementquidance-2.onrender.com/addStudent", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    name: name,
+                    email: email,
+                    password: password
+                })
+            });
 
+            const msg = await res.text();
+            alert(msg);
 
             // Redirect to login page after 2 seconds
             setTimeout(() => {
                 window.location.href = "/login";
             }, 2000);
+
         } else {
             otperror.textContent = "Invalid OTP";
         }
-    })
-    .catch(error => {
+
+    } catch (error) {
         console.error("Error:", error);
         otperror.textContent = "Server error";
-    });
-
+    }
 }
+
 
 
 
