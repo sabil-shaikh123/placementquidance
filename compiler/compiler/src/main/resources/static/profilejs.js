@@ -51,6 +51,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                     companyEl.textContent =
                         company.company_name + " - " +
                         new Date(company.visiting_date).toLocaleDateString();
+                    companyEl.style.color = "#00eaff";
 
                     // Make it clickable
                     companyEl.style.cursor = "pointer";
