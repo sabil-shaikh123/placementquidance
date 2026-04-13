@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 const nameElement = document.createElement("p");
                 nameElement.textContent = company.company_name;
                 nameElement.style.cursor = "pointer";
-                nameElement.style.color = "blue";
+                nameElement.style.color = "#00eaff";
                 nameElement.style.textDecoration = "underline";
 
                 nameElement.onclick = () => {
