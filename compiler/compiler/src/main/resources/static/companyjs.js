@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             const qElement = document.createElement("p");
             qElement.textContent = q.breif_question;
             qElement.style.cursor = "pointer";
-            qElement.style.color = "blue";
+            qElement.style.color = "#00eaff";
             qElement.style.textDecoration = "underline";
 
             alert("code id is " + q.codeId);
