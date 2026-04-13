@@ -38,6 +38,36 @@
 
     <style>
 
+       .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            position: relative;
+        }
+
+            /* Center title */
+            .title {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                margin: 0;
+            }
+
+            /* Left profile button */
+            .profile-btn img {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+            }
+
+            /* Right button */
+            .test-btn {
+                padding: 8px 16px;
+                font-size: 14px;
+                cursor: pointer;
+            }
+
         .profile-btn {
           width: 48px;
           height: 48px;
@@ -47,12 +77,13 @@
           padding: 0;
         }
 
-        .profile-btn img {
-          width: 100%;
-          height: 100%;
-          border-radius: 50%;   /* makes it circular */
-          object-fit: cover;
-        }
+<!--        .profile-btn img {-->
+<!--          width: 100%;-->
+<!--          height: 100%;-->
+<!--          border-radius: 50%;   /* makes it circular */-->
+<!--          object-fit: cover;-->
+<!--        }-->
+
 
         /* ---------- GLOBAL ---------- */
         * {
@@ -269,15 +300,14 @@
 
 <body>
 
-<header>
-    <p id="authMsg"></p>
-    <button  class="profile-btn"  onclick="goToProfile()">
+<header class="header">
+    <button class="profile-btn" onclick="goToProfile()">
         <img src="profile.png" alt="Profile">
     </button>
-    <h2>Placement Guidance Platform</h2>
-    <div>
-        <button onclick="taketest()">Take Test</button>
-    </div>
+
+    <h2 class="title">Placement Guidance Platform</h2>
+
+    <button class="test-btn" onclick="taketest()">Take Test</button>
 </header>
 
 <hr>
